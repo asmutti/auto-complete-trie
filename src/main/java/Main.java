@@ -1,15 +1,26 @@
 import core.AutoCompleteEngine;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         var engine = new AutoCompleteEngine();
 
+        var stations = new ArrayList<>(Arrays.asList(
+                "Santa Iria",
+                "Santa Margarida",
+                "Santana-Cartaxo",
+                "Santarém",
+                "Santo Amaro de Oeiras"
+        ));
 
-        engine.addToDictionary("Santa Iria");
-        engine.addToDictionary("Santa Margarida");
+        stations.forEach((station) -> {
+            engine.addToDictionary(station);
+        });
 
-        var result = engine.autoComplete("santa ");
+        var suggestions = engine.autoComplete("sant");
 
-        engine.print(result);
+        engine.print(suggestions);
     }
 }
