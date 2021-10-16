@@ -16,6 +16,8 @@ public class Trie {
 
     /**
      * Inserts a word into the trie data structure.
+     *
+     * Runs in O(k) where k is the length of the input word.
      * @param word
      */
     public void insertWord(String word) {
@@ -37,6 +39,11 @@ public class Trie {
         currentNode.setLastLetterOfWord(true);
     }
 
+    /**
+     *  Runs in O(k) where k is an average length of the String
+     * @param prefix
+     * @return
+     */
     public List<String> advanceSearch(String prefix){
         var result = new ArrayList<String>();
 
@@ -56,6 +63,7 @@ public class Trie {
 
     /**
      * Depth First Search recursive function.
+     *
      * @param targetWord
      * @param currentNode
      * @param dictionary
